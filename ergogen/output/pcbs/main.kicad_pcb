@@ -6896,7 +6896,7 @@
     
 
         (module RPi_Pico_SMD_TH (layer F.Cu) (tedit 5F638C80)
-        (at 296.9 -3.5500000000000007 0)
+        (at 296.9 -4.050000000000001 0)
 
         
         (fp_text reference "_1" (at 0 0) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -7117,7 +7117,7 @@
         (pad 43 smd rect (at 2.54 23.9 90) (size 3.5 1.7) (drill (offset -0.9 0)) (layers F.Cu F.Mask))
     )
         (module RPi_Pico_SMD_TH (layer F.Cu) (tedit 5F638C80)
-        (at 296.9 -3.5500000000000007 0)
+        (at 296.9 -4.050000000000001 0)
 
         
         (fp_text reference "_1" (at 0 0) (layer B.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -7228,6 +7228,95 @@
         (pad 39 smd rect (at 8.89 -21.59 0) (size 3.5 1.7) (drill (offset 0.9 0)) (layers B.Cu B.Mask) (net 110 "VSYS"))
         (pad 40 smd rect (at 8.89 -24.13 0) (size 3.5 1.7) (drill (offset 0.9 0)) (layers B.Cu B.Mask) (net 111 "VBUS"))
     )
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 12 -19.05 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 93.225 -19.05 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 174.45 -19.05 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 255.675 -19.05 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 272.925 0 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 17.225 19.05 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 138.95 28.55 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 239.2 38.1 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 28.35 57.15 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 121.17499999999998 76.2 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 251.125 76.2 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+    (module HOLE_M2_TH (layer F.Cu) (tedit 5A52E4A3) 
+      (at 302.90000000000003 57.15 0)   
+      
+
+      (pad "" np_thru_hole circle (at 0 0 90) (size 4.0 4.0) (drill 4.0) (layers *.Cu *.Mask F.SilkS) (clearance 0.3)))
+  
+
+            (gr_text "Flatbread v0.1" (at 156.67499999999998 76.2 0) (layer F.SilkS)
+                (effects (font (size 3 3) (thickness 0.4) ) (justify left))
+            )
+        
   (gr_line (start -11 84.7) (end -11 -27.55) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start -9 -29.55) (end 314.9 -29.55) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 316.9 -27.55) (end 316.9 84.7) (angle 90) (layer Edge.Cuts) (width 0.15))

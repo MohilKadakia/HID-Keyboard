@@ -275,6 +275,7 @@ pcbs:
         adjust:
           shift: [0, -4]
           rotate: 180
+          
       # Controller
       pi_pico:
         what: pipico
@@ -284,8 +285,86 @@ pcbs:
           psuShim: true
         where:
           ref: function_delete_row
-          shift: [29, -15.5]
+          shift: [29, -15]
           rotate: 0.0
+      
+      # Mounting holes
+      hole_top_left:
+        what: mountinghole
+        where:
+          ref: function_escape_row
+          shift: [pushX+3, 0]
+      hole_top_middle_left:
+        what: mountinghole
+        where:
+          ref: function_f4_row
+          shift: [pushX+3, 0]
+      hole_top_middle_right:
+        what: mountinghole
+        where:
+          ref: function_f8_row
+          shift: [pushX+3, 0]
+      hole_top_right:
+        what: mountinghole
+        where:
+          ref: function_f12_row
+          shift: [pushX+3, 0]
+      
+      hole_top_right_2:
+        what: mountinghole
+        where:
+          ref: number_backspace_row
+          shift: [pushX+6, 0]
+          
+      hole_middle_left:
+        what: mountinghole
+        where:
+          ref: top_tab_row
+          shift: [pushX+3, 0]
+      hole_middle_middle:
+        what: mountinghole
+        where:
+          ref: top_y_row
+          shift: [pushX+5.5, -pushY-1]
+      hole_middle_right:
+        what: mountinghole
+        where:
+          ref: home_quote_row
+          shift: [pushX+6, 0]
+      
+      hole_bottom_left:
+        what: mountinghole
+        where:
+          ref: bottom_left_shift_row
+          shift: [pushX+7, 0]
+      hole_bottom_middle:
+        what: mountinghole
+        where:
+          ref: controls_space_row
+          shift: [-pushX-9, 0]
+      hole_bottom_right:
+        what: mountinghole
+        where:
+          ref: controls_right_control_row
+          shift: [pushX+7, 0]
+      hole_bottom_right_2:
+        what: mountinghole
+        where:
+          ref: bottom_up_arrow_row
+          shift: [pushX+7, 0]
+          
+      # Keyboard Name
+      front_text: &text
+        what: text
+        where: &textWhere
+            ref: controls_space_row
+            shift: [17.5, 0]
+        params: &textParams
+            text: Flatbread v0.1
+            justify: left
+            h_size: 3.0
+            v_size: 3.0
+            thickness: 0.4
 
 cases:
   plate:
