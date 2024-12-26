@@ -20,6 +20,8 @@ units:
   caseBorder: 1.5
   screwThreadRadius: 0.5
   screwPCBRadius: 4.0
+  screwSize: 1.5
+  standoffSize: 2.5
 
 points:
   zones:
@@ -250,6 +252,125 @@ outlines:
     - name: xl_board
     - operation: subtract
       name: keys
+  
+  mounting:
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [function_escape_row]
+        shift: [pushX+3, 0]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [function_f4_row]
+        shift: [pushX+3, 0]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [function_f8_row]
+        shift: [pushX+3, 0]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [function_f12_row]
+        shift: [pushX+3, 0]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [top_tab_row]
+        shift: [pushX+3, 0]
+        
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [home_quote_row]
+        shift: [pushX+6, 0]
+        
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [bottom_left_shift_row]
+        shift: [pushX+7, 0]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [controls_right_control_row]
+        shift: [pushX+7, 0]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [bottom_up_arrow_row]
+        shift: [pushX+7, 0]
+    
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [top_y_row]
+        shift: [pushX+5.5, -pushY-1]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [controls_space_row]
+        shift: [-pushX-9, 0]
+  standoff:
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [function_escape_row]
+        shift: [pushX+3, 0]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [function_f4_row]
+        shift: [pushX+3, 0]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [function_f8_row]
+        shift: [pushX+3, 0]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [function_f12_row]
+        shift: [pushX+3, 0]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [top_tab_row]
+        shift: [pushX+3, 0]
+
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [home_quote_row]
+        shift: [pushX+6, 0]
+        
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [bottom_left_shift_row]
+        shift: [pushX+7, 0]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [controls_right_control_row]
+        shift: [pushX+7, 0]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [bottom_up_arrow_row]
+        shift: [pushX+7, 0]
+    
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [top_y_row]
+        shift: [pushX+5.5, -pushY-1]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [controls_space_row]
+        shift: [-pushX-9, 0]
 
 pcbs:
   main:
@@ -309,12 +430,6 @@ pcbs:
         where:
           ref: function_f12_row
           shift: [pushX+3, 0]
-      
-      hole_top_right_2:
-        what: mountinghole
-        where:
-          ref: number_backspace_row
-          shift: [pushX+6, 0]
           
       hole_middle_left:
         what: mountinghole
@@ -370,3 +485,41 @@ cases:
   plate:
     - name: xl_board_key_cutouts
       extrude: 1.2
+  bottom:
+    - name: board
+      extrude: 1
+  xlBottom:
+    - name: xl_board
+      extrude: 1
+  _outerWall:
+    - name: xl_board
+      extrude: 5.6
+  _innerWall:
+    - name: board
+      extrude: 5.6
+  wall:
+    - what: case
+      name: _outerWall
+      operation: add
+    - what: case
+      name: _innerWall
+      operation: subtract
+  _holes:
+    - name: mounting
+      extrude: 4
+  _standoffs:
+    - name: standoff
+      extrude: 4
+  case:
+    - what: case
+      name: _standoffs
+      operation: add
+    - what: case
+      name: _holes
+      operation: subtract
+    - what: case
+      name: xlBottom
+      operation: add
+    - what: case
+      name: wall
+      operation: add
