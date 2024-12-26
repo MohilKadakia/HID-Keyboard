@@ -1,0 +1,293 @@
+units:
+  px: cx + 2
+  py: cy + 2
+
+  gap: 0.025u
+
+  pushX: (cx / 2)
+  pushY: (cy / 2)
+
+  padX: pushX + 2
+  padY: pushY + 2
+
+  pad: 2
+
+  spacing: 0.75
+
+  controllerW: 18.5
+  controllerH: 33.5
+  belowControllerH: 17
+  caseBorder: 1.5
+  screwThreadRadius: 0.5
+  screwPCBRadius: 4.0
+
+points:
+  zones:
+    number:
+      anchor:
+      columns:
+        tilda:
+        num1:
+          key.spread: 1.025u + gap
+        num2:
+        num3:
+        num4:
+        num5:
+        num6:
+        num7:
+        num8:
+        num9:
+        num0:
+        minus:
+        equal:
+        backspace:
+          key:
+            spread: 1.5u + gap
+            asym: left
+            width: 2u
+        
+      rows:
+        row:
+
+    function:
+      anchor:
+        ref: number_tilda_row
+        shift: [0U, 1U]
+      columns:
+        escape:
+        f1:
+          key.spread: 1.25u + gap
+        f2:
+        f3:
+        f4:
+        f5:
+          key.spread: 1.25u + gap
+        f6:
+        f7:
+        f8:
+        f9:
+          key.spread: 1.25u + gap
+        f10:
+        f11:
+        f12:
+        delete:
+          key.spread: 1.25u + gap
+      rows:
+        row:
+
+    top:
+      anchor:
+        ref: number_tilda_row
+        shift: [0.25u + gap, -1U]
+      columns:
+        tab:
+          key:
+            asym: left
+            width: 1.5u
+        q:
+          key.spread: 1.25u + gap
+        w:
+        e:
+        r:
+        t:
+        y:
+        u:
+        i:
+        o:
+        p:
+        square_bracket_open:
+        square_bracket_close:
+        backslash:
+          key:
+            spread: 1.25u + gap
+            asym: left
+            width: 1.5u
+      rows:
+        row:
+
+    home:
+      anchor:
+        ref: number_tilda_row
+        shift: [0.4u, -2U]
+      columns:
+        caps:
+          key:
+            asym: left
+            width: 1.75u
+        a:
+          key.spread: 1.375u + gap
+        s:
+        d:
+        f:
+        g:
+        h:
+        j:
+        k:
+        l:
+        semicolon:
+        quote:
+        backslash:
+          key:
+            spread: 1.625u + gap
+            asym: left
+            width: 2.25u
+        macro1:
+          key.spread: 1.625u + gap
+        macro2:
+      rows:
+        row:
+
+    bottom:
+      anchor:
+        ref: number_tilda_row
+        shift: [0.65u, -3U]
+      columns:
+        left_shift:
+          key:
+            asym: left
+            width: 2.25u
+        z:
+          key.spread: 1.625u + gap
+        x:
+        c:
+        v:
+        b:
+        n:
+        m:
+        comma:
+        period:
+        slash:
+        right_shift:
+          key:
+            spread: 1.875u + gap
+            asym: left
+            width: 2.75u
+
+        up_arrow:
+          key.spread: 1.875u + gap
+      rows:
+        row:
+
+    controls:
+      anchor:
+        ref: number_tilda_row
+        shift: [0.275u, -4U]
+      columns:
+        left_control:
+          key:
+            asym: left
+            width: 1.5u
+        function:
+          key.spread: 1.25u + gap
+        super:
+        left_alt:
+        space:
+          key:
+            spread: 3.75u + gap
+            asym: left
+            width: 6.5u
+        right_alt:
+          key.spread: 3.75u + gap
+        right_control:
+          key:
+            spread: 1.25u + gap
+            asym: left
+            width: 1.5u
+        
+        left_arrow:
+          key.spread: 1.7u + gap
+        bottom_arrow:
+        right_arrow:
+
+      rows:
+        row:
+
+outlines:
+  keys:
+    - what: rectangle
+      where: true
+      size: [15, 15]
+      fillet: 0
+  board:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        # Top
+        - ref: function_escape_row
+          shift: [-padX, padY]
+        - ref: function_delete_row
+          shift: [pushX + pad + 2u, padY]
+
+        # Bottom
+        - ref: controls_right_arrow_row
+          shift: [padX, -padY]
+        - ref: controls_left_control_row
+          shift: [-padX-0.25u-gap, -padY]
+
+        # Connect to top
+        - ref: function_escape_row
+          shift: [-padX, -padY]
+  xl_board:
+    - what: polygon
+      operation: stack
+      points:
+        # Top
+        - ref: function_escape_row
+          shift: [-padX - caseBorder, padY + caseBorder]
+        - ref: function_delete_row
+          shift: [padX + caseBorder + 2u, padY + caseBorder]
+        # Bottom
+        - ref: controls_right_arrow_row
+          shift: [padX + caseBorder, -padY - caseBorder]
+        - ref: controls_left_control_row
+          shift: [-padX-0.25u-gap - caseBorder, -padY - caseBorder]
+
+        # Connect to top
+        - ref: function_escape_row
+          shift: [-padX - caseBorder, -padY]
+  xl_board_key_cutouts:
+    - name: xl_board
+    - operation: subtract
+      name: keys
+
+pcbs:
+  main:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: /^.*/
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode_main:
+        what: diode
+        where: /^.*/
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -4]
+          rotate: 180
+      # Controller
+      pi_pico:
+        what: pipico
+        params:
+          mounted: front
+          mountingType: both
+          psuShim: true
+        where:
+          ref: function_delete_row
+          shift: [29, -15.5]
+          rotate: 0.0
+
+cases:
+  plate:
+    - name: xl_board_key_cutouts
+      extrude: 1.2
