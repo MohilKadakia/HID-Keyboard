@@ -23,6 +23,11 @@ units:
   screwSize: 1.5
   standoffSize: 2.5
 
+  stabY: pushY - 6
+  stabilizerGap: 0.5u - 1
+  stabilizerWidth: 7
+  stabilizerHeight: stabY-11
+
 points:
   zones:
     number:
@@ -128,7 +133,7 @@ points:
         l:
         semicolon:
         quote:
-        backslash:
+        enter:
           key:
             spread: 1.625u + gap
             asym: left
@@ -208,7 +213,7 @@ outlines:
   keys:
     - what: rectangle
       where: true
-      size: [15, 15]
+      size: [14, 14]
       fillet: 0
   board:
     - what: polygon
@@ -284,13 +289,13 @@ outlines:
       radius: screwSize
       where:
         ref: [home_quote_row]
-        shift: [pushX+6, 0]
+        shift: [0, -pushY-1]
         
     - what: circle
       radius: screwSize
       where:
-        ref: [bottom_left_shift_row]
-        shift: [pushX+7, 0]
+        ref: [bottom_z_row]
+        shift: [-padX, -pushY]
     - what: circle
       radius: screwSize
       where:
@@ -338,18 +343,18 @@ outlines:
       where:
         ref: [top_tab_row]
         shift: [pushX+3, 0]
-
-    - what: circle
-      radius: standoffSize
-      where:
-        ref: [home_quote_row]
-        shift: [pushX+6, 0]
         
     - what: circle
       radius: standoffSize
       where:
-        ref: [bottom_left_shift_row]
-        shift: [pushX+7, 0]
+        ref: [home_quote_row]
+        shift: [0, -pushY-1]
+        
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [bottom_z_row]
+        shift: [-padX, -pushY]
     - what: circle
       radius: standoffSize
       where:
@@ -371,6 +376,162 @@ outlines:
       where:
         ref: [controls_space_row]
         shift: [-pushX-9, 0]
+  
+  stabilizers:
+    - what: rectangle
+      where: true
+      size: [14, 14]
+      fillet: 0
+
+    # Backspace
+    - what: polygon
+      operation: stack
+      points:
+        - ref: number_backspace_row
+          shift: [-stabilizerGap, stabY]
+        - ref: number_backspace_row
+          shift: [-stabilizerWidth-stabilizerGap, stabY]
+        - ref: number_backspace_row
+          shift: [-stabilizerWidth-stabilizerGap, stabilizerHeight]
+        - ref: number_backspace_row
+          shift: [-stabilizerGap, stabilizerHeight]
+
+        - ref: number_backspace_row
+          shift: [-stabilizerGap, stabY]
+    - what: polygon
+      operation: stack
+      points:
+        - ref: number_backspace_row
+          shift: [stabilizerGap, stabY]
+        - ref: number_backspace_row
+          shift: [stabilizerWidth+stabilizerGap, stabY]
+        - ref: number_backspace_row
+          shift: [stabilizerWidth+stabilizerGap, stabilizerHeight]
+        - ref: number_backspace_row
+          shift: [stabilizerGap, stabilizerHeight]
+
+        - ref: number_backspace_row
+          shift: [stabilizerGap, stabY]
+    
+    # Enter
+    - what: polygon
+      operation: stack
+      points:
+        - ref: home_enter_row
+          shift: [-stabilizerGap, stabY]
+        - ref: home_enter_row
+          shift: [-stabilizerWidth-stabilizerGap, stabY]
+        - ref: home_enter_row
+          shift: [-stabilizerWidth-stabilizerGap, stabilizerHeight]
+        - ref: home_enter_row
+          shift: [-stabilizerGap, stabilizerHeight]
+
+        - ref: home_enter_row
+          shift: [-stabilizerGap, stabY]
+    - what: polygon
+      operation: stack
+      points:
+        - ref: home_enter_row
+          shift: [stabilizerGap, stabY]
+        - ref: home_enter_row
+          shift: [stabilizerWidth+stabilizerGap, stabY]
+        - ref: home_enter_row
+          shift: [stabilizerWidth+stabilizerGap, stabilizerHeight]
+        - ref: home_enter_row
+          shift: [stabilizerGap, stabilizerHeight]
+
+        - ref: home_enter_row
+          shift: [stabilizerGap, stabY]
+    
+    # Left Shift
+    - what: polygon
+      operation: stack
+      points:
+        - ref: bottom_left_shift_row
+          shift: [-stabilizerGap, stabY]
+        - ref: bottom_left_shift_row
+          shift: [-stabilizerWidth-stabilizerGap, stabY]
+        - ref: bottom_left_shift_row
+          shift: [-stabilizerWidth-stabilizerGap, stabilizerHeight]
+        - ref: bottom_left_shift_row
+          shift: [-stabilizerGap, stabilizerHeight]
+
+        - ref: bottom_left_shift_row
+          shift: [-stabilizerGap, stabY]
+    - what: polygon
+      operation: stack
+      points:
+        - ref: bottom_left_shift_row
+          shift: [stabilizerGap, stabY]
+        - ref: bottom_left_shift_row
+          shift: [stabilizerWidth+stabilizerGap, stabY]
+        - ref: bottom_left_shift_row
+          shift: [stabilizerWidth+stabilizerGap, stabilizerHeight]
+        - ref: bottom_left_shift_row
+          shift: [stabilizerGap, stabilizerHeight]
+
+        - ref: bottom_left_shift_row
+          shift: [stabilizerGap, stabY]
+    
+    # Right Shift
+    - what: polygon
+      operation: stack
+      points:
+        - ref: bottom_right_shift_row
+          shift: [-stabilizerGap, stabY]
+        - ref: bottom_right_shift_row
+          shift: [-stabilizerWidth-stabilizerGap, stabY]
+        - ref: bottom_right_shift_row
+          shift: [-stabilizerWidth-stabilizerGap, stabilizerHeight]
+        - ref: bottom_right_shift_row
+          shift: [-stabilizerGap, stabilizerHeight]
+
+        - ref: bottom_right_shift_row
+          shift: [-stabilizerGap, stabY]
+    - what: polygon
+      operation: stack
+      points:
+        - ref: bottom_right_shift_row
+          shift: [stabilizerGap, stabY]
+        - ref: bottom_right_shift_row
+          shift: [stabilizerWidth+stabilizerGap, stabY]
+        - ref: bottom_right_shift_row
+          shift: [stabilizerWidth+stabilizerGap, stabilizerHeight]
+        - ref: bottom_right_shift_row
+          shift: [stabilizerGap, stabilizerHeight]
+
+        - ref: bottom_right_shift_row
+          shift: [stabilizerGap, stabY]
+    
+    # Spacebar
+    - what: polygon
+      operation: stack
+      points:
+        - ref: controls_space_row
+          shift: [-41.5, stabY]
+        - ref: controls_space_row
+          shift: [stabilizerWidth-41.5, stabY]
+        - ref: controls_space_row
+          shift: [stabilizerWidth-41.5, stabilizerHeight]
+        - ref: controls_space_row
+          shift: [-41.5, stabilizerHeight]
+
+        - ref: controls_space_row
+          shift: [-41.5, stabY]
+    - what: polygon
+      operation: stack
+      points:
+        - ref: controls_space_row
+          shift: [34.5, stabY]
+        - ref: controls_space_row
+          shift: [stabilizerWidth+34.5, stabY]
+        - ref: controls_space_row
+          shift: [stabilizerWidth+34.5, stabilizerHeight]
+        - ref: controls_space_row
+          shift: [34.5, stabilizerHeight]
+
+        - ref: controls_space_row
+          shift: [34.5, stabY]
 
 pcbs:
   main:
@@ -445,13 +606,13 @@ pcbs:
         what: mountinghole
         where:
           ref: home_quote_row
-          shift: [pushX+6, 0]
+          shift: [0, -pushY-1]
       
       hole_bottom_left:
         what: mountinghole
         where:
-          ref: bottom_left_shift_row
-          shift: [pushX+7, 0]
+          ref: bottom_z_row
+          shift: [-padX, -pushY]
       hole_bottom_middle:
         what: mountinghole
         where:
@@ -473,18 +634,29 @@ pcbs:
         what: text
         where: &textWhere
             ref: controls_space_row
-            shift: [17.5, 0]
+            shift: [-42.5, -pushY+2]
         params: &textParams
-            text: Flatbread v0.1
+            text: Flatbread v0.2
             justify: left
             h_size: 3.0
             v_size: 3.0
             thickness: 0.4
 
 cases:
-  plate:
+  key_plate:
     - name: xl_board_key_cutouts
       extrude: 1.2
+  stabilizers_plate:
+    - name: stabilizers
+      extrude: 1.2
+  plate:
+    - what: case
+      name: key_plate
+      operation: add
+    - what: case
+      name: stabilizers_plate
+      operation: subtract
+      
   bottom:
     - name: board
       extrude: 1
